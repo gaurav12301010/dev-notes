@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head') %>
+  <title>Write Article</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #f9fafb;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+    }
+
+    .editor-container {
+      max-width: 760px;
+    }
+
+    .editor-title {
+      color: #111827;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .editor-hint {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    .form-floating > .form-control {
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .form-floating > .form-control:focus {
+      box-shadow: none;
+      border-color: #111827;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+    }
+
+    .btn-primary {
+      background-color: #111827;
+      border: none;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background-color: #000000;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include('./partials/nav') %>
+
+  <div class="container editor-container py-4">
+
+    <!-- Page Heading -->
+    <div class="mb-4">
+      <h3 class="editor-title mb-1">Write a new Article</h3>
+      <p class="editor-hint">
+        Share your thoughts with the community
+      </p>
+    </div>
+
+    <!-- Blog Form -->
+    <form action="/blog" method="post" enctype="multipart/form-data">
+
+      <!-- Title -->
+      <div class="form-floating mb-3">
+        <textarea
+          class="form-control"
+          placeholder="Title"
+          id="blogTitle"
+          name="title"
+          style="height: 80px"
+          required
+        ></textarea>
+        <label for="blogTitle">Article title</label>
+      </div>
+
+      <!-- Cover Image -->
+      <div class="form-floating mb-3">
+        <input
+          type="file"
+          class="form-control"
+          id="coverImage"
+          name="coverImageURL"
+          required
+        >
+        <label for="coverImage">Cover image</label>
+      </div>
+
+      <!-- Body -->
+      <div class="form-floating mb-4">
+        <textarea
+          class="form-control"
+          placeholder="Write your story..."
+          id="blogBody"
+          name="body"
+          style="height: 260px"
+          required
+        ></textarea>
+        <label for="blogBody">Write your DevNote.</label>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-primary px-4 py-2">
+        Publish
+      </button>
+
+    </form>
+
+  </div>
+
+  <%- include('./partials/scripts') %>
+</body>
+</html>

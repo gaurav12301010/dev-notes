@@ -1,0 +1,16 @@
+/* layout.css */
+
+.editor-container {
+  max-width: 760px;
+}
+
+.blog-container {
+  max-width: 820px;
+}
+
+.auth-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}

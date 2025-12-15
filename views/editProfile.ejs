@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head') %>
+  <title>Edit Profile</title>
+</head>
+
+<body>
+  <%- include('./partials/nav') %>
+
+  <div class="container py-4" style="max-width:520px;">
+    <h4 class="mb-3">Edit Profile</h4>
+
+    <% if (locals.error) { %>
+      <div class="alert alert-danger">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <form action="/user/profile/edit" method="POST">
+
+      <!-- NAME -->
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input
+          type="text"
+          name="fullName"
+          class="form-control"
+          value="<%= user.fullName %>"
+          required
+        />
+      </div>
+
+      <!-- EMAIL (READ ONLY) -->
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          value="<%= user.email %>"
+          disabled
+        />
+      </div>
+
+      <hr />
+
+      <h6 class="mb-2">Change Password (optional)</h6>
+
+      <!-- CURRENT PASSWORD -->
+      <div class="mb-3">
+        <label class="form-label">Current Password</label>
+        <input
+          type="password"
+          name="currentPassword"
+          class="form-control"
+        />
+      </div>
+
+      <!-- NEW PASSWORD -->
+      <div class="mb-3">
+        <label class="form-label">New Password</label>
+        <input
+          type="password"
+          name="newPassword"
+          class="form-control"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-dark">
+        Save Changes
+      </button>
+    </form>
+  </div>
+
+  <%- include('./partials/scripts') %>
+</body>
+</html>

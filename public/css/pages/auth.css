@@ -1,0 +1,14 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.auth-link {
+  color: #111827;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}

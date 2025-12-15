@@ -1,0 +1,138 @@
+<style>
+  body {
+    padding-top: 64px; /* navbar height */
+  }
+
+  .navbar-modern {
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .navbar-modern .navbar-brand {
+    font-weight: 600;
+    color: #111827;
+    letter-spacing: -0.3px;
+  }
+
+  .navbar-modern .nav-link {
+    color: #374151;
+    font-size: 0.95rem;
+    margin-left: 0.75rem;
+  }
+
+  .navbar-modern .nav-link:hover {
+    color: #111827;
+  }
+
+  .navbar-modern .nav-link.active {
+    color: #111827;
+    font-weight: 500;
+  }
+
+  .navbar-modern .nav-link.cta {
+    background-color: #111827;
+    color: #ffffff !important;
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .navbar-modern .nav-link.cta:hover {
+    background-color: #000000;
+  }
+
+  .navbar-modern .dropdown-menu {
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .navbar-modern .dropdown-item {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-modern .dropdown-item:hover {
+    background-color: #f3f4f6;
+  }
+
+  .alert-modern {
+    background-color: #f3f4f6;
+    color: #111827;
+    border: none;
+    border-radius: 10px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-modern py-2">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">DevNotes</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto align-items-center">
+
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home</a>
+        </li>
+
+        <% if (locals.user) { %>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/blog/add-new">Write</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#"
+               data-bs-toggle="dropdown">
+              <%= locals.user.email %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="/user/profile/edit">
+                  Edit Profile
+                </a>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+
+              <li>
+                <a class="dropdown-item text-danger" href="/user/logout">
+                  Log out
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        <% } else { %>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/user/signin">Sign in</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link cta" href="/user/signup">Get started</a>
+          </li>
+
+        <% } %>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<% if (locals.error) { %>
+  <div class="alert alert-modern text-center mx-3 mt-3 mb-0">
+    <%= locals.error %>
+  </div>
+<% } %>

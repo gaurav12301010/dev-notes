@@ -1,0 +1,42 @@
+/* components.css */
+
+/* Buttons */
+.btn-primary {
+  background-color: #111827;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #000000;
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 0.65rem 0.75rem;
+}
+
+.form-control:focus {
+  border-color: #111827;
+  box-shadow: none;
+}
+
+/* Titles */
+.page-title,
+.editor-title,
+.auth-title,
+.blog-title {
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+/* Subtitles / hints */
+.page-subtitle,
+.editor-hint,
+.auth-subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
